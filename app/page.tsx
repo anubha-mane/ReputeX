@@ -20,9 +20,9 @@ export default function Home() {
         </div>
 
         <div className="w-full">
-          <h1 className="text-4xl font-bold mb-4">Welcome to x402 Solana Identity</h1>
+          <h1 className="text-4xl font-bold mb-4">Welcome to Solana Reputation Demo</h1>
           <p className="text-gray-600 dark:text-gray-400 mb-8">
-            Create your on-chain identity and reputation system on Solana using the x402 protocol.
+            Create your on-chain identity and reputation on Solana.
           </p>
 
           {/* Identity & Reputation Section */}
@@ -31,26 +31,18 @@ export default function Home() {
             <InitializeReputation />
           </div>
 
-          {/* Content Access Section */}
+          {/* Reputation Payment Only Section */}
           <div className="border-t border-gray-200 dark:border-zinc-800 pt-8">
-            <h2 className="text-2xl font-bold mb-4">Access Content</h2>
+            <h2 className="text-2xl font-bold mb-4">Reputation-Based Payment Demo</h2>
             <p className="text-gray-600 dark:text-gray-400 mb-4">
-              Test the x402 payment protocol with these examples:
+              Make a USDC payment through the Solana smart contract and update the agent's on-chain reputation.
             </p>
-            <div className="flex gap-4">
-              <Link
-                href="/content/cheap"
-                className="inline-block px-6 py-3 bg-neutral-800 text-white rounded-lg font-semibold hover:opacity-90 transition-opacity"
-              >
-                Access Cheap Content 🪣
-              </Link>
-              <Link
-                href="/content/expensive"
-                className="inline-block px-6 py-3 bg-neutral-800 text-white rounded-lg font-semibold hover:opacity-90 transition-opacity"
-              >
-                Access Expensive Content 💰
-              </Link>
-            </div>
+            <Link
+              href="/reputation-payment"
+              className="inline-block px-6 py-3 bg-neutral-800 text-white rounded-lg font-semibold hover:opacity-90 transition-opacity"
+            >
+              Go to Reputation Payment
+            </Link>
           </div>
         </div>
       </main>
