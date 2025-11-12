@@ -13,28 +13,30 @@ function ReputationContentInner() {
   const txSignature = searchParams.get('tx')
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-[#14F195] to-[#9945FF] font-sans">
-      <main className="flex w-full max-w-2xl flex-col items-center justify-center p-8">
-        <div className="bg-white rounded-2xl shadow-2xl p-12 text-center">
-          <div className="bg-gradient-to-br from-purple-50 to-green-50 rounded-xl p-8 mb-8 border-2 border-purple-200">
-            <h2 className="text-2xl font-bold text-gray-800 mb-4">🔓 Premium Content Unlocked</h2>
-            <p className="text-gray-700 leading-relaxed mb-6 font-medium">
-              You deserve the best! Here are some happy, wealthy cats living their best lives. 🐱💰✨
-            </p>
-            <p className="text-sm text-purple-600 mb-6">
-              Payment processed through Solana blockchain with reputation tracking!
+    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
+      <main className="flex min-h-screen w-full max-w-2xl flex-col items-center py-16 px-6 bg-white dark:bg-black">
+        <div className="w-full">
+          <h1 className="text-3xl font-bold mb-2">Premium Content</h1>
+          <p className="text-gray-600 dark:text-gray-400 mb-8">
+            Unlocked after payment. Enjoy some delightful luxury cats and check your updated on-chain reputation.
+          </p>
+
+          <div className="border border-gray-200 dark:border-zinc-800 rounded-xl p-6 mb-8">
+            <h2 className="text-xl font-semibold mb-3">Unlocked Content</h2>
+            <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
+              Payment processed on Solana with reputation tracking.
             </p>
             <CatsComponent contentType="expensive" />
           </div>
 
           {/* Show updated reputation */}
-          <div className="mb-8">
+          <div className="mb-8 border-t border-gray-200 dark:border-zinc-800 pt-6">
             <ViewReputation agentPublicKey={EXAMPLE_AGENT} />
           </div>
 
           {txSignature && (
-            <div className="bg-green-50 border border-green-200 rounded-lg p-4 mb-6">
-              <p className="text-sm text-gray-600 mb-2">✅ Transaction Confirmed</p>
+            <div className="bg-green-50 dark:bg-zinc-900 border border-green-200 dark:border-zinc-800 rounded-lg p-4 mb-6">
+              <p className="text-sm text-gray-700 dark:text-gray-300 mb-2">✅ Transaction confirmed</p>
               <a
                 href={`https://explorer.solana.com/tx/${txSignature}?cluster=devnet`}
                 target="_blank"
@@ -46,21 +48,23 @@ function ReputationContentInner() {
             </div>
           )}
 
-          <div className="flex flex-col gap-4">
+          <div className="flex items-center gap-3">
             <Link
               href="/"
-              className="px-6 py-3 bg-neutral-800 text-white rounded-lg font-semibold hover:opacity-90 transition-opacity"
+              className="px-5 py-2.5 bg-neutral-800 text-white rounded-md font-medium hover:opacity-90 transition-opacity"
             >
               Back to Home
             </Link>
-            
             <Link
               href="/reputation-payment"
-              className="px-6 py-3 bg-purple-600 text-white rounded-lg font-semibold hover:bg-purple-700 transition-colors"
+              className="px-5 py-2.5 bg-neutral-800 text-white rounded-md font-medium hover:opacity-90 transition-opacity"
             >
-              Make Another Payment
+              Make another payment
             </Link>
           </div>
+          <p className="text-xs text-gray-500 dark:text-gray-500 mt-4">
+            You can revisit this page anytime with your transaction signature.
+          </p>
         </div>
       </main>
     </div>
@@ -70,8 +74,8 @@ function ReputationContentInner() {
 export default function ReputationContentPage() {
   return (
     <Suspense fallback={
-      <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-[#14F195] to-[#9945FF]">
-        <div className="text-white text-xl">Loading content...</div>
+      <div className="flex min-h-screen items-center justify-center bg-zinc-50 dark:bg-black">
+        <div className="text-gray-700 dark:text-gray-200 text-xl">Loading content...</div>
       </div>
     }>
       <ReputationContentInner />
